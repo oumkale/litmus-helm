@@ -54,7 +54,7 @@ jobs:
       - run:
           name: Install kind
           command: |
-            curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+            curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64 --insecure
             chmod +x ./kind
             sudo mv kind /usr/local/bin/
       - run:
@@ -110,4 +110,4 @@ workflows:
           matrix:
             parameters:
               kubernetes_version: [1.16.15, 1.17.17, 1.18.19, 1.19.11, 1.20.7, 1.21.1, 1.22.0]
-              chart: [litmus-1-x, litmus, kubernetes-chaos, kube-aws]
+              chart: [litmus-core, litmus, kubernetes-chaos, kube-aws]
